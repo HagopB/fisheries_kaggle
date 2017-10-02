@@ -1,4 +1,4 @@
-# fisheries_kaggle #
+# Fisheries_kaggle #
 ### What is this repository for? 
 
 * Kaggle competition with a multiclass classification problematic.
