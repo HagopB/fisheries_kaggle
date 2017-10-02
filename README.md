@@ -7,17 +7,16 @@
 ### Contents
 
 ```
-└── planet_kaggle
+└── fisheries_kaggle
     ├── initial_files                # data sources (downloaded from the competition page) 
     ├── train
-        └── images                   # unzipped train images
+        └── class subfolders         # unzipped train images organized in subfolders
+    ├── valid
+        └── class subfolders         # unzipped validation images organized in subfolders
     ├── test
-        └── images                   # unzipped test images (set 1)
-    ├── test_add
-        └── images                   # unzipped test images (set 2)
+        └── test_stg1                # unzipped test images (stage 1)
+        └── test_stg2                # unzipped test images (stage 2)
     ├── convnets.py                  # models
-    ├── planet_train_predict.ipynb   # main notebook for both training and predicting
-    ├── submission_v2.csv            # submissions
-    ├── submit.csv                   # submission images ids
-    └── train_v2.csv                 # train labels
+    ├── submission.csv               # submissions
+    └── train_predict.ipynb          # main notebook for both training and predicting
 ```
