@@ -89,14 +89,14 @@ def get_VGG16(trainable=False,
     #importing convolutional layers of vgg16 from keras
     model = VGG16(include_top=False, weights='imagenet',input_shape=(224,224,3))
     if pop == True:
-        model.layers.pop()
+        model = Sequential(model.layers[:-1])
     #setting the convolutional layers to non-trainable 
     for layer in model.layers:
         layer.trainable = trainable
     return(model)
 
 def top_model_vgg(n_classes,
-                  X_shape=(7,7,512),
+                  X_shape,
                   dense_neurons=512,
                   do=0.5,
                   lr=0.01, 
@@ -110,7 +110,7 @@ def top_model_vgg(n_classes,
     n_classes: int 
         How many classes are you trying to classify ? 
         
-    X_shape: tuple, optional (default=(7,7,512))
+    X_shape: tuple
         The input shape for the first layer.
     
     dense_neurons: int, optional (default=512)
@@ -154,7 +154,7 @@ def top_model_vgg(n_classes,
     return(top_model)
 
 def heat_layers(n_classes,
-                X_shape=(7,7,512),
+                X_shape,
                 n_fm = 128,
                 do=0.5,
                 lr=0.01, 
@@ -168,7 +168,7 @@ def heat_layers(n_classes,
     n_classes: int 
         How many classes are you trying to classify ? 
         
-    X_shape: tuple, optional (default=(7,7,512))
+    X_shape: tuple
         The input shape for the first layer.
         
     n_fm: int, optional (default=128)
@@ -209,7 +209,7 @@ def heat_layers(n_classes,
     return(top_model)
                 
 def get_batches(dirname, 
-                gen=image.ImageDataGenerator(rescale=1./255), 
+                gen=image.ImageDataGenerator(), 
                 shuffle=False, 
                 batch_size=1, 
                 class_mode='categorical',
